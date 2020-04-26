@@ -37,7 +37,7 @@ def getItems(imdbcode):
 	return {"Image":imgLink,"nameYear":nameYear,"plot":plot,"latestSeason":latestSeason,"rating":rating}
 
 def search(query):
-	url=f'https://v2.sg.media-imdb.com/suggestion/{query[0]}/{query}.json'
+	url=f'https://v2.sg.media-imdb.com/suggestion/{str.lower(query[0])}/{query}.json'
 	items=requests.get(url).json()['d']
 	Fullresult=[]
 	for item in items:
